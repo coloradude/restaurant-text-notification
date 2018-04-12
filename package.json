@@ -2,8 +2,10 @@
   "name": "restauraunt-text-notification",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://coloradude.github.io/restaurant-text-notification",
   "dependencies": {
     "bootstrap-css-only": "^4.0.0",
+    "gh-pages": "^1.1.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
@@ -14,6 +16,8 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -31,17 +31,17 @@ const reducer = (state, action) => {
       const newRecentOrders = newState.recentOrders
       newState.recentOrders = [{orderId: action.payload.orderId, phone: action.payload.phone}, ...newRecentOrders]
 
-      fetch(`http://localhost:8000/${action.payload.phone}`)
+      fetch(`https://nameless-eyrie-82335.herokuapp.com/${action.payload.phone}`)
         .then(res => res.json())
         .then(res => console.log(res))
 
       return newState
 
     case 'TEXT_AGAIN': 
-      fetch(`http://localhost:8000/${action.payload.phone}`)
+      fetch(`https://nameless-eyrie-82335.herokuapp.com/${action.payload.phone}`)
         .then(res => res.json())
         .then(res => console.log(res))
-        
+
       return newState
 
     case 'DELETE_RECENT_ORDER': 
