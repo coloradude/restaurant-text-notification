@@ -32,8 +32,39 @@
   margin: 20px
 }
 
+.input-form, .list-view {
+  min-width: 33.333%
+}
+
 .list-view {
   display: flex;
   flex-direction: column;
-  margin: 0 30px
+  margin: 0 15px
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column
+}
+
+.card + .card {
+  margin-bottom: 15px;
+}
+
+.half-width {
+  display: flex;
+  justify-content: space-around
+}
+
+.padding-right-5 {
+  padding-right: 5px
+}
+
+.padding-left-5 {
+  padding-left: 5px
 }

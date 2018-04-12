@@ -1,3 +1,5 @@
+import rp from 'request-promise'
+
 const reducer = (state, action) => {
 
   const newState = {...state}
@@ -29,11 +31,25 @@ const reducer = (state, action) => {
       const newRecentOrders = newState.recentOrders
       newState.recentOrders = [{orderId: action.payload.orderId, phone: action.payload.phone}, ...newRecentOrders]
 
-      console.log(newState.recentOrders)
+      fetch(`http://localhost:8000/${action.payload.phone}`)
+        .then(res => res.json())
+        .then(res => console.log(res))
+
       return newState
 
     case 'TEXT_AGAIN': 
+      fetch(`http://localhost:8000/${action.payload.phone}`)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        
+      return newState
 
+    case 'DELETE_RECENT_ORDER': 
+      newState.recentOrders = newState.recentOrders.filter(order => order.orderId !== action.payload.orderId)
+      return newState
+
+    case 'DELETE_ACTIVE_ORDER':
+      newState.activeOrders = newState.activeOrders.filter(order => order.orderId !== action.payload.orderId)
       return newState
 
     default:

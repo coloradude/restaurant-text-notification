@@ -3,10 +3,10 @@ const initialState = {
     orderId: '',
 
     activeOrders: [{
-        phone: 3039392929,
+        phone: 3039289620,
         orderId: 1010202
     },{
-        phone: 3032023020,
+        phone: 3039289620,
         orderId: 2020203
     }],
 
