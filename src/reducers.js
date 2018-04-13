@@ -1,9 +1,11 @@
 import rp from 'request-promise'
 
+const APIurl = window.location.hostname === 'localhost' ?
+  'http://localhost:3000/' : 'https://nameless-eyrie-82335.herokuapp.com/'
+
 const reducer = (state, action) => {
 
   const newState = {...state}
-  console.log(newState)
 
   switch(action.type){
 
@@ -31,14 +33,14 @@ const reducer = (state, action) => {
       const newRecentOrders = newState.recentOrders
       newState.recentOrders = [{orderId: action.payload.orderId, phone: action.payload.phone}, ...newRecentOrders]
 
-      fetch(`https://nameless-eyrie-82335.herokuapp.com/${action.payload.phone}`)
+      fetch(`${APIurl}${action.payload.phone}`)
         .then(res => res.json())
         .then(res => console.log(res))
 
       return newState
 
     case 'TEXT_AGAIN': 
-      fetch(`https://nameless-eyrie-82335.herokuapp.com/${action.payload.phone}`)
+      fetch(`${APIurl}${action.payload.phone}`)
         .then(res => res.json())
         .then(res => console.log(res))
 
